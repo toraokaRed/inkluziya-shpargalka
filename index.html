@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Инклюзия | Полный гид для учителя</title>
+    <title>Инклюзия | Психологическая готовность педагога</title>
     <style>
         * {
             margin: 0;
@@ -13,331 +13,226 @@
 
         body {
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            background: linear-gradient(135deg, #e8eef4 0%, #d4dfe8 100%);
             min-height: 100vh;
             padding: 30px 20px;
-            animation: bgShift 15s ease infinite;
-        }
-
-        @keyframes bgShift {
-            0% { background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); }
-            50% { background: linear-gradient(135deg, #1a2a3a 0%, #2d4a5a 50%, #3a6b7a 100%); }
-            100% { background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); }
-        }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(10px);
-            border-radius: 32px;
-            padding: 28px;
-            margin-bottom: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .glass:hover {
-            transform: translateY(-3px);
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
+        .card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 28px;
+            padding: 28px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(100,108,138,0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        }
+
         h1 {
-            font-size: 42px;
-            background: linear-gradient(135deg, #2c5364, #0f2027);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+            font-size: 36px;
+            color: #1a2a4f;
             margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .badge {
-            background: linear-gradient(135deg, #2c5364, #203a43);
+            background: #2c5f8a;
             color: white;
-            font-size: 14px;
-            padding: 6px 16px;
+            font-size: 13px;
+            padding: 5px 14px;
             border-radius: 40px;
             display: inline-block;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.9; }
-            100% { transform: scale(1); opacity: 1; }
+            font-weight: 500;
         }
 
         h2 {
-            font-size: 28px;
+            font-size: 26px;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-left: 5px solid #2c5364;
+            color: #1a2a4f;
+            border-left: 5px solid #2c5f8a;
             padding-left: 18px;
         }
 
         h3 {
-            font-size: 22px;
-            margin: 25px 0 15px;
-            color: #2c5364;
+            font-size: 20px;
+            margin: 24px 0 12px;
+            color: #2c5f8a;
         }
 
-        /* Плитки-категории */
-        .categories-grid {
+        h4 {
+            font-size: 18px;
+            margin: 16px 0 8px;
+            color: #1a2a4f;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 12px 16px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background: #f0f4f9;
+            font-weight: 600;
+            color: #1a2a4f;
+        }
+
+        .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 25px 0;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .barrier-card, .disorder-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 20px;
+            border-top: 4px solid #2c5f8a;
+            transition: all 0.2s;
+        }
+        .barrier-card:hover, .disorder-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .barrier-card h4, .disorder-card h4 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #1a2a4f;
         }
 
-        .category-card {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 24px;
-            padding: 0;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: 1px solid rgba(44,83,100,0.2);
-        }
-
-        .category-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            border-color: #2c5364;
-        }
-
-        .category-header {
-            background: linear-gradient(135deg, #2c5364, #203a43);
-            color: white;
+        .recommendation {
+            background: #f0f7f0;
+            border-left: 5px solid #2c5f8a;
             padding: 18px;
-            font-size: 20px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .category-preview {
-            padding: 18px;
-            color: #444;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        .category-hint {
-            padding: 12px 18px;
-            background: #e8f0fe;
-            border-top: 1px solid #ddd;
-            font-size: 13px;
-            color: #2c5364;
-            font-weight: 500;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* Модальное окно */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 32px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 28px;
-            position: relative;
-            animation: modalIn 0.3s ease;
-        }
-
-        @keyframes modalIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 28px;
-            cursor: pointer;
-            color: #999;
-            transition: 0.2s;
-        }
-        .modal-close:hover { color: #2c5364; }
-
-        .modal h3 {
-            margin-top: 0;
-            padding-right: 30px;
-        }
-
-        .modal ul, .modal p {
             margin: 15px 0;
-            line-height: 1.6;
+            border-radius: 12px;
+        }
+        .recommendation strong {
+            color: #2c5f8a;
         }
 
-        .modal li {
-            margin: 8px 0;
-            margin-left: 20px;
-        }
-
-        /* Остальные стили */
-        .tool-list {
-            list-style: none;
-            padding: 0;
-        }
-        .tool-list li {
+        .scenario {
+            background: #fef8e7;
+            border-left: 5px solid #e6a017;
+            padding: 16px;
             margin: 12px 0;
-            padding-left: 28px;
-            position: relative;
-        }
-        .tool-list li:before {
-            content: "🛠️";
-            position: absolute;
-            left: 0;
+            border-radius: 12px;
         }
 
         .checklist-item {
-            background: #e8f0fe;
-            border-radius: 16px;
-            padding: 15px;
-            margin: 12px 0;
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin: 10px 0;
             cursor: pointer;
             transition: all 0.2s;
-            border-left: 4px solid #2c5364;
+            border-left: 4px solid #2c5f8a;
         }
         .checklist-item.completed {
-            background: #d4edda;
-            border-left-color: #28a745;
+            background: #e8f5e9;
             text-decoration: line-through;
             opacity: 0.8;
-        }
-        .checklist-desc {
-            font-size: 13px;
-            color: #555;
-            margin-top: 8px;
-            display: none;
-        }
-        .checklist-item.expanded .checklist-desc {
-            display: block;
+            border-left-color: #4caf50;
         }
 
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 12px;
         }
         .link-card {
-            background: #f0f2f5;
-            padding: 12px;
-            border-radius: 16px;
-            text-align: center;
-            transition: all 0.2s;
+            background: #f8fafc;
+            padding: 12px 16px;
+            border-radius: 14px;
+            transition: 0.2s;
         }
         .link-card a {
             text-decoration: none;
-            color: #2c5364;
+            color: #2c5f8a;
             font-weight: 500;
         }
         .link-card:hover {
-            background: #2c5364;
-            transform: translateY(-2px);
-        }
-        .link-card:hover a {
-            color: white;
+            background: #e8f0fe;
+            transform: translateX(4px);
         }
 
         button {
-            background: linear-gradient(135deg, #2c5364, #203a43);
+            background: #2c5f8a;
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.2s;
-            margin: 5px;
+            transition: 0.2s;
         }
         button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: #1a3f5c;
         }
 
-        .random-tip {
-            background: linear-gradient(135deg, #f0f9ff, #e6f3ff);
+        .result-card {
+            background: #e8f0fe;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .download-section {
+            background: #e8f0fe;
             border-radius: 20px;
             padding: 20px;
             text-align: center;
-            font-size: 18px;
-            font-weight: 500;
             margin: 20px 0;
-        }
-
-        .progress-bar {
-            height: 4px;
-            background: #ddd;
-            border-radius: 2px;
-            margin-top: 15px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #2c5364, #4a8faf);
-            width: 0%;
-            transition: width 0.3s;
         }
 
         footer {
             text-align: center;
             margin-top: 30px;
-            color: rgba(255,255,255,0.85);
             padding: 20px;
-            border-radius: 32px;
-            background: rgba(0,0,0,0.3);
+            color: #5a6e7a;
+            font-size: 13px;
+            border-top: 1px solid #cbd5e1;
         }
 
         @media (max-width: 600px) {
             body { padding: 15px; }
-            .glass { padding: 20px; }
+            .card { padding: 20px; }
             h1 { font-size: 28px; }
             h2 { font-size: 22px; }
-        }
-
-        .option-btn {
-            background: #e8f0fe;
-            padding: 6px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: 0.2s;
-            display: inline-block;
-            margin: 3px;
-        }
-        .option-btn.selected {
-            background: linear-gradient(135deg, #2c5364, #203a43);
-            color: white;
         }
     </style>
 </head>
@@ -345,253 +240,250 @@
 <div class="container">
 
     <!-- ШАПКА -->
-    <div class="glass">
+    <div class="card">
         <h1>
-            🧠 Инклюзия: Полный гид для учителя
-            <span class="badge">🔥 мега-шпаргалка</span>
+            🧠 Инклюзия: психологическая готовность педагога
+            <span class="badge">методический навигатор</span>
         </h1>
-        <p style="font-size: 18px; color: #555;">👩‍🏫 Готовые алгоритмы • Чек-листы • Цифровые инструменты • Советы</p>
-        <div class="progress-bar"><div class="progress-fill" id="pageProgress"></div></div>
+        <p style="font-size: 16px; color: #4a5568;">Практико-ориентированный ресурс для педагогов, работающих в инклюзивных классах. На основе исследований Е.С. Слюсаревой, С.В. Алехиной и др.</p>
     </div>
 
-    <!-- ТЕСТ -->
-    <div class="glass">
-        <h2>🎯 Тест: Ваши барьеры в инклюзии</h2>
-        <p>10 вопросов, 2 минуты. Оцените себя от 0 до 3.</p>
-        <div id="testBlock"></div>
-        <button id="calcBtn">✨ Узнать результат ✨</button>
-        <div id="resultCard" class="random-tip" style="display:none"></div>
+    <!-- ТЕОРЕТИЧЕСКИЙ БЛОК (научное обоснование) -->
+    <div class="card">
+        <h2>📚 Теоретические основы инклюзивной готовности</h2>
+        
+        <p><strong>Инклюзивное образование</strong> — обеспечение равного доступа к образованию для всех обучающихся с учётом разнообразия особых образовательных потребностей и индивидуальных возможностей (ФЗ «Об образовании в РФ», 2012) .</p>
+        
+        <p>Согласно исследованиям С.В. Алехиной, <strong>готовность педагога</strong> является ведущим фактором успешной реализации инклюзивной практики . При этом подготовка педагога, включённого в инклюзивный процесс, не должна быть аналогичной подготовке педагога-дефектолога — это должен быть педагог принципиально нового типа (В.З. Кантор) .</p>
+
+        <h3>Три компонента профессиональной готовности (по Е.С. Слюсаревой)</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>Компонент</th><th>Содержание</th><th>Диагностический инструмент</th></tr>
+                <tr><td><strong>Теоретический</strong></td><td>Знания в области инклюзивного образования, специальной психологии, нормативно-правовой базы</td><td>Опросник сформированности знаний (Слюсарева Е.С.)</td></tr>
+                <tr><td><strong>Практический</strong></td><td>Аналитические, прогностические, проектировочные, организаторские, коммуникативные, рефлексивные умения</td><td>Опросник сформированности умений (Слюсарева Е.С.)</td></tr>
+                <tr><td><strong>Личностный</strong></td><td>Психологическая готовность, отсутствие/преодоление барьеров</td><td>Опросник психологических барьеров (Слюсарева Е.С.)  </td></tr>
+            </table>
+        </div>
+
+        <p>Валидность методик подтверждена эмпирическими исследованиями на выборке 129 педагогов, реализующих инклюзивную практику (Слюсарева Е.С., 2020) .</p>
     </div>
 
-    <!-- ПЛИТКИ-КАТЕГОРИИ (с открытием по клику) -->
-    <div class="glass">
-        <h2>📚 Разделы помощи</h2>
-        <p>Кликните на любую плитку — откроются подробные советы</p>
-        <div class="categories-grid" id="categoriesGrid"></div>
-    </div>
+    <!-- ПСИХОЛОГИЧЕСКИЕ БАРЬЕРЫ (по Слюсаревой) -->
+    <div class="card">
+        <h2>🚧 Психологические барьеры педагогов</h2>
+        <p><em>По классификации Е.С. Слюсаревой (2019) </em></p>
+        
+        <div class="grid-3">
+            <div class="barrier-card">
+                <h4>📖 Психолого-познавательные</h4>
+                <p>Трудности в освоении и использовании знаний о психологических особенностях детей с ОВЗ. Несформированность практических умений взаимодействия .</p>
+                <p><strong>Примеры:</strong> «Я знаю теорию, но не знаю, как применить её на практике».</p>
+            </div>
+            <div class="barrier-card">
+                <h4>💔 Эмоциональные</h4>
+                <p>Неверие в собственные силы, тревожность, страх перед контактом с ребёнком с ОВЗ, чувство стыда и вины из-за неловкости за себя или другого .</p>
+                <p><strong>Примеры:</strong> «Боюсь сделать что-то не так», «Мне страшно, что ребёнок с ОВЗ не поймёт меня».</p>
+            </div>
+            <div class="barrier-card">
+                <h4>💬 Коммуникативные</h4>
+                <p>Смысловой (разное понимание явлений), логический (логика педагога слишком сложна), лингвистический (незнание альтернативных средств коммуникации) .</p>
+                <p><strong>Примеры:</strong> «Ребёнок с РАС воспринимает мои слова буквально, и это мешает общению».</p>
+            </div>
+        </div>
 
-    <!-- ЧЕК-ЛИСТ (интерактивный) -->
-    <div class="glass">
-        <h2>✅ Чек-лист готовности урока</h2>
-        <p>Кликайте по пунктам — отмечайте выполненные</p>
-        <div id="checklistContainer"></div>
-        <button id="resetChecklist">🔄 Сбросить чек-лист</button>
-        <div id="checklistProgress" style="margin-top:15px; font-weight:bold"></div>
-    </div>
-
-    <!-- СЛУЧАЙНЫЙ СОВЕТ -->
-    <div class="glass">
-        <h2>🎲 Случайный полезный совет</h2>
-        <div id="randomTip" class="random-tip">Нажмите на кнопку</div>
-        <button id="newTipBtn">✨ Другой совет ✨</button>
-    </div>
-
-    <!-- 5 ПРИНЦИПОВ -->
-    <div class="glass">
-        <h2>🔥 5 принципов инклюзии (коротко)</h2>
-        <div style="display: grid; gap: 12px;">
-            <div class="checklist-item" style="cursor:default"><strong>1️⃣</strong> Не знаешь — спроси у психолога, а не выдумывай</div>
-            <div class="checklist-item" style="cursor:default"><strong>2️⃣</strong> Ребёнок не должен быть удобным — он должен быть принятым</div>
-            <div class="checklist-item" style="cursor:default"><strong>3️⃣</strong> Ошибки ребёнка с ОВЗ — не зло, а особенность</div>
-            <div class="checklist-item" style="cursor:default"><strong>4️⃣</strong> Не знаешь, что сказать — скажи «Давай подумаем вместе»</div>
-            <div class="checklist-item" style="cursor:default"><strong>5️⃣</strong> Выгорание лечить отдыхом, а не игнором</div>
+        <div class="recommendation">
+            <strong>📌 Ключевой вывод исследования:</strong> Наиболее распространённый барьер — <strong>лингвистический</strong>: педагоги не владеют альтернативными средствами коммуникации (жестовая речь, карточки PECS), что приводит к субъективной интерпретации реакций ребёнка, не владеющего вербальной речью .
         </div>
     </div>
 
-    <!-- ПОЛЕЗНЫЕ ССЫЛКИ (ВСЕ РАБОЧИЕ) -->
-    <div class="glass">
-        <h2>🔗 Полезные ссылки</h2>
-        <p>Ресурсы, которые реально работают</p>
+    <!-- НОВОЕ: ПСИХОЛОГО-ПЕДАГОГИЧЕСКАЯ ХАРАКТЕРИСТИКА ДЕТЕЙ С ОВЗ -->
+    <div class="card">
+        <h2>📋 Характеристика детей с ОВЗ (ключевые нозологии)</h2>
+        <p><em>На основе исследований Института коррекционной педагогики РАО и ФРЦ РАС МГППУ</em></p>
+        
+        <div class="grid-4">
+            <div class="disorder-card">
+                <h4>🧩 Задержка психического развития (ЗПР)</h4>
+                <p><strong>Особенности познавательной сферы:</strong> сниженная работоспособность, быстрая утомляемость, трудности с абстрактно-логическим мышлением.</p>
+                <p><strong>Особенности речи:</strong> бедный словарь, аграмматизмы, трудности построения развёрнутого высказывания.</p>
+                <p><strong>Рекомендации:</strong> дробление материала на мелкие шаги, визуальные опоры, дополнительное время на выполнение заданий.</p>
+            </div>
+            <div class="disorder-card">
+                <h4>🌟 Расстройство аутистического спектра (РАС)</h4>
+                <p><strong>Особенности:</strong> трудности социального взаимодействия, сенсорная гиперчувствительность, потребность в предсказуемости.</p>
+                <p><strong>Коммуникация:</strong> эхолалии, буквальное понимание инструкций, возможна невербальность.</p>
+                <p><strong>Рекомендации:</strong> визуальное расписание, предупреждение о смене деятельности, альтернативная коммуникация (PECS, карточки).</p>
+            </div>
+            <div class="disorder-card">
+                <h4>👂 Нарушения слуха</h4>
+                <p><strong>Особенности:</strong> затруднённое восприятие устной речи, опора на зрительное восприятие.</p>
+                <p><strong>Речь:</strong> нарушения произношения, бедность словаря, аграмматизмы (при потере слуха до овладения речью).</p>
+                <p><strong>Рекомендации:</strong> использование субтитров, зрительных опор, индивидуальная звукоусиливающая аппаратура.</p>
+            </div>
+            <div class="disorder-card">
+                <h4>👁️ Нарушения зрения</h4>
+                <p><strong>Особенности:</strong> опора на слуховое и тактильное восприятие, трудности пространственной ориентации.</p>
+                <p><strong>Рекомендации:</strong> вербализация действий, контрастная маркировка, сохранение постоянства расположения предметов.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- НОВОЕ: АЛГОРИТМ ВЗАИМОДЕЙСТВИЯ "ПРОБЛЕМНАЯ СИТУАЦИЯ → РЕШЕНИЕ" -->
+    <div class="card">
+        <h2>🔄 Пошаговый алгоритм взаимодействия</h2>
+        <p><em>При возникновении трудностей в общении с ребёнком с ОВЗ</em></p>
+        
+        <div class="scenario">
+            <strong>📌 Ситуация 1. Ребёнок с РАС не идёт на контакт, избегает смотреть в глаза</strong><br>
+            <strong>Что делать:</strong> Не требовать зрительного контакта, использовать визуальные карточки, дать время на адаптацию. Говорить спокойно, короткими фразами.<br>
+            <em>Пример фразы:</em> «Я положу карточку на парту, когда будет нужно убрать вещи».
+        </div>
+        
+        <div class="scenario">
+            <strong>📌 Ситуация 2. Ребёнок с ЗПР не понимает инструкцию, задание не выполняет</strong><br>
+            <strong>Что делать:</strong> Разбить инструкцию на 2-3 микрошага. Использовать наглядную опору (схему, образец).<br>
+            <em>Пример фразы:</em> «Сначала открой тетрадь. Потом найди упражнение номер 3. Потом прочитай первое предложение. Я тебе помогу, если нужно».
+        </div>
+        
+        <div class="scenario">
+            <strong>📌 Ситуация 3. Слабослышащий ребёнок не понимает объяснение</strong><br>
+            <strong>Что делать:</strong> Говорить лицом к ребёнку, не перекрывать рот рукой. Использовать визуальные опоры (схемы на доске, раздаточный материал).<br>
+            <em>Пример фразы:</em> «Смотри на меня и на схему на доске. Я буду показывать каждый шаг».
+        </div>
+        
+        <div class="scenario">
+            <strong>📌 Ситуация 4. Ребёнок с РАС демонстрирует агрессию/самостимулирующее поведение</strong><br>
+            <strong>Что делать:</strong> Не кричать в ответ. Обозначить правило. Предложить альтернативу. Если нужно — дать время в «тихой зоне».<br>
+            <em>Пример фразы:</em> «Я вижу, тебе трудно. Ты можешь постоять у окна 2 минуты, а потом вернёшься к работе».
+        </div>
+
+        <div class="scenario">
+            <strong>📌 Ситуация 5. Родитель ребёнка с ОВЗ обвиняет педагога в некомпетентности</strong><br>
+            <strong>Что делать:</strong> Не оправдываться. Выслушать. Перевести в конструктив: «Давайте вместе посмотрим, что не получается, и подумаем, как помочь ребёнку».<br>
+            <em>Пример фразы:</em> «Я слышу ваше беспокойство. Давайте встретимся с психологом и составим план поддержки».
+        </div>
+    </div>
+
+    <!-- НОВОЕ: ПАМЯТКА ДЛЯ РАБОТЫ С РОДИТЕЛЯМИ -->
+    <div class="card">
+        <h2>👪 Памятка «Как строить диалог с родителями детей с ОВЗ»</h2>
+        <ul style="margin-left: 25px;">
+            <li><strong>1. Не обесценивать переживания родителей.</strong> Вместо «всё нормально, не переживайте» — «Я понимаю, что вам непросто. Я здесь, чтобы помочь вашему ребёнку».</li>
+            <li><strong>2. Говорить о ребёнке конкретно.</strong> Вместо «он плохо себя ведёт» — «сегодня на уроке он 3 раза вставал без разрешения, давайте подумаем, почему так происходит».</li>
+            <li><strong>3. Предлагать сотрудничество.</strong> «Давайте обсудим, что можно сделать дома и в школе, чтобы ему было легче».</li>
+            <li><strong>4. Не давать ложных обещаний.</strong> Не гарантировать, что ребёнок «исправится» или «догонит программу». Гарантировать можно только свою поддержку.</li>
+            <li><strong>5. Хранить конфиденциальность.</strong> Не обсуждать особенности ребёнка и его семьи с другими родителями или коллегами без согласия.</li>
+        </ul>
+    </div>
+
+    <!-- ИНТЕРАКТИВНЫЙ ТЕСТ -->
+    <div class="card">
+        <h2>🎯 Тест: оценка психологических барьеров</h2>
+        <p>Адаптированная версия опросника Е.С. Слюсаревой. Оцените степень выраженности затруднений (0–3 балла).</p>
+        <div id="testBlock"></div>
+        <button id="calcBtn">✨ Рассчитать уровень барьеров ✨</button>
+        <div id="resultCard" class="result-card"></div>
+        <p style="margin-top: 15px; font-size: 13px; color: #666;">* 0–10 баллов — низкий уровень барьеров; 11–20 — средний; 21–30 — высокий </p>
+    </div>
+
+    <!-- РЕКОМЕНДАЦИИ ПО ПРЕОДОЛЕНИЮ БАРЬЕРОВ -->
+    <div class="card">
+        <h2>🛠️ Преодоление барьеров: рекомендации</h2>
+        <p><em>На основе экспериментальной работы краевой инновационной площадки «Комплексное сопровождение субъектов инклюзивного образовательного процесса» (Ставропольский край, 2012–2014) </em></p>
+
+        <h3>Психолого-познавательные барьеры</h3>
+        <ul style="margin-left: 25px; margin-bottom: 15px;">
+            <li>Участие в программах повышения квалификации по инклюзивному образованию</li>
+            <li>Изучение методических пособий (Слюсарева Е.С. «Психолого-педагогическое сопровождение субъектов инклюзивного образования», 2019) </li>
+            <li>Взаимопосещение уроков коллег, работающих в инклюзивных классах</li>
+        </ul>
+
+        <h3>Эмоциональные барьеры</h3>
+        <ul style="margin-left: 25px; margin-bottom: 15px;">
+            <li>Тренинги по развитию эмпатии и толерантности</li>
+            <li>Групповые супервизии с психологом</li>
+            <li>Техники саморегуляции (дыхательные упражнения, рефлексия)</li>
+        </ul>
+
+        <h3>Коммуникативные барьеры</h3>
+        <ul style="margin-left: 25px; margin-bottom: 15px;">
+            <li>Освоение альтернативных средств коммуникации (карточки PECS, пиктограммы)</li>
+            <li>Обучение использованию визуального расписания для детей с РАС</li>
+            <li>Адаптация инструкций: простые фразы, без переносного смысла, пошаговые алгоритмы</li>
+        </ul>
+    </div>
+
+    <!-- НОВОЕ: РАБОЧИЕ ЛИСТЫ ДЛЯ СКАЧИВАНИЯ -->
+    <div class="card">
+        <h2>📥 Рабочие материалы</h2>
+        <div class="download-section">
+            <p style="margin-bottom: 15px;"><strong>Чек-лист для самонаблюдения</strong> — ежедневная рефлексия педагога</p>
+            <ul style="text-align: left; margin-bottom: 15px;">
+                <li>✅ Сегодня я заметил(а) свои эмоции в ответ на поведение ребёнка</li>
+                <li>✅ Я использовал(а) хотя бы одну рекомендацию из этого сайта</li>
+                <li>✅ Я обратился(лась) за советом к коллеге/психологу</li>
+                <li>✅ Я похвалил(а) себя за то, что справился(лась)</li>
+            </ul>
+            <p style="font-size: 13px; color: #666;">Рекомендуется вести дневник наблюдений и фиксировать успехи и трудности. Обсуждать их с психологом или на супервизиях.</p>
+        </div>
+    </div>
+
+    <!-- ЧЕК-ЛИСТ (интерактивный) -->
+    <div class="card">
+        <h2>✅ Чек-лист «Готовность к инклюзивному уроку»</h2>
+        <p>Кликайте по пунктам — отмечайте выполненные.</p>
+        <div id="checklistContainer"></div>
+        <button id="resetChecklist">🔄 Сбросить чек-лист</button>
+        <div id="checklistProgress" style="margin-top: 15px; font-weight: bold;"></div>
+    </div>
+
+    <!-- НОВОЕ: СПИСОК ЛИТЕРАТУРЫ (ГОСТ) -->
+    <div class="card">
+        <h2>📚 Список литературы (рекомендуемый)</h2>
+        <ul style="margin-left: 25px;">
+            <li>Слюсарева Е.С. Методика психологической диагностики готовности педагогов к реализации инклюзивной образовательной практики // Вестник Костромского государственного университета. Серия: Педагогика. Психология. Социокинетика. 2020. Т. 26, № 1. С. 104–111.</li>
+            <li>Слюсарева Е.С. Психолого-педагогические барьеры во взаимодействии субъектов инклюзивной образовательной среды // Вестник Костромского государственного университета. Серия: Педагогика. Психология. Социокинетика. 2019. Т. 25, № 3. С. 112–117.</li>
+            <li>Алехина С.В. Готовность педагогов как основной фактор успешности инклюзивного процесса в образовании // Психологическая наука и образование. 2014. № 3. С. 83–92.</li>
+            <li>Кантор В.З., Проект Ю.Л. Инклюзивные диспозиции и компетенции педагогов общеобразовательных организаций: проблемы взаимосвязи // Интеграция образования. 2024. Т. 28, № 3. С. 384–399.</li>
+            <li>Слюсарева Е.С., Акименко В.М., Ершова В.В. Психолого-педагогическое сопровождение субъектов инклюзивного образования: учебно-методическое пособие. Ставрополь: АГРУС, 2019. 112 с.</li>
+            <li>Слюсарева Е.С. Факторы профессиональной готовности педагога к реализации инклюзивного образования // Известия Дагестанского государственного педагогического университета. Психолого-педагогические науки. 2018. Т. 12, № 2. С. 30–35.</li>
+        </ul>
+    </div>
+
+    <!-- ПОЛЕЗНЫЕ РЕСУРСЫ (только научные/официальные) -->
+    <div class="card">
+        <h2>🔗 Научные и методические ресурсы</h2>
         <div class="links-grid">
-            <div class="link-card"><a href="https://resh.edu.ru" target="_blank">📖 Российская электронная школа</a></div>
-            <div class="link-card"><a href="https://uchi.ru" target="_blank">📚 Учи.ру</a></div>
-            <div class="link-card"><a href="https://learningapps.org" target="_blank">🎮 LearningApps</a></div>
-            <div class="link-card"><a href="https://wordwall.net" target="_blank">🎲 Wordwall</a></div>
-            <div class="link-card"><a href="https://www.vse-vklyucheny.ru/mediateka" target="_blank">📘 Медиатека «Все включены»</a></div>
-            <div class="link-card"><a href="https://frcras.ru" target="_blank">🧩 ФРЦ РАС МГППУ</a></div>
-            <div class="link-card"><a href="http://window.edu.ru" target="_blank">🪟 Единое окно доступа</a></div>
-            <div class="link-card"><a href="http://school-collection.edu.ru" target="_blank">🏫 Единая коллекция ЦОР</a></div>
+            <div class="link-card"><a href="https://cyberleninka.ru" target="_blank">📚 КиберЛенинка (научные статьи)</a></div>
+            <div class="link-card"><a href="https://elibrary.ru" target="_blank">📖 Научная электронная библиотека eLibrary</a></div>
             <div class="link-card"><a href="https://ikp-rao.ru" target="_blank">🏛️ Институт коррекционной педагогики РАО</a></div>
-            <div class="link-card"><a href="https://psy.su" target="_blank">💬 Портал «Психологическая газета»</a></div>
+            <div class="link-card"><a href="https://frcras.ru" target="_blank">🧩 ФРЦ РАС МГППУ</a></div>
+            <div class="link-card"><a href="https://www.vse-vklyucheny.ru/mediateka" target="_blank">📘 Медиатека «Все включены»</a></div>
+            <div class="link-card"><a href="https://psyjournals.ru" target="_blank">📓 Психологические журналы МГППУ</a></div>
         </div>
     </div>
 
     <footer>
-        🌟 Сайт-шпаргалка для учителей. Не панацея, а быстрая помощь.<br>
-        📍 Разработано Ерастовой Олесей Викторовной, Педагогический институт ИГУ, проектная практика 2026<br>
-        📚 Источники: исследования Е.С. Слюсаревой, ФРЦ РАС МГППУ, материал портала «Первое сентября»
+        🌟 Материалы сайта основаны на научных исследованиях и учебно-методических пособиях.<br>
+        📍 Разработано в рамках проектной практики Педагогического института ИГУ<br>
+        📚 Основные источники: публикации Е.С. Слюсаревой, С.В. Алехиной, ФРЦ РАС МГППУ, Института коррекционной педагогики РАО
     </footer>
 </div>
 
-<!-- Модальное окно -->
-<div id="categoryModal" class="modal">
-    <div class="modal-content">
-        <span class="modal-close" id="modalClose">&times;</span>
-        <div id="modalBody"></div>
-    </div>
-</div>
-
 <script>
-    // ========== ДАННЫЕ ДЛЯ ПЛИТОК ==========
-    const categories = [
-        {
-            icon: "🧩",
-            title: "Задержка психического развития (ЗПР)",
-            preview: "Быстрая утомляемость, низкий темп, нужны наглядные опоры...",
-            details: `
-                <h3>🧩 Особенности детей с ЗПР</h3>
-                <p>🔹 Быстрая утомляемость, низкая работоспособность<br>
-                🔹 Трудности с абстрактным мышлением<br>
-                🔹 Нуждаются в пошаговых инструкциях</p>
-                <h3>✅ Что делать учителю</h3>
-                <ul>
-                    <li>Дробить задания на маленькие шаги</li>
-                    <li>Давать больше времени на ответ</li>
-                    <li>Использовать наглядные опоры (схемы, таблицы, картинки)</li>
-                    <li>Хвалить за старание, а не только за правильный ответ</li>
-                    <li>Чередовать виды деятельности каждые 7-10 минут</li>
-                    <li>Посадить за первую-вторую парту, ближе к учителю</li>
-                </ul>
-                <p><strong>📌 Важно:</strong> У детей с ЗПР сохранно конкретное мышление — опирайтесь на реальные предметы и примеры из жизни.</p>
-            `
-        },
-        {
-            icon: "🌟",
-            title: "Расстройство аутистического спектра (РАС)",
-            preview: "Трудности коммуникации, сенсорная перегрузка, потребность в предсказуемости...",
-            details: `
-                <h3>🌟 Особенности детей с РАС</h3>
-                <p>🔹 Трудности с социальным взаимодействием<br>
-                🔹 Сенсорная перегрузка (боятся громких звуков, яркого света)<br>
-                🔹 Потребность в предсказуемости и ритуалах</p>
-                <h3>✅ Что делать учителю</h3>
-                <ul>
-                    <li>Визуальное расписание — обязательно (картинки + текст)</li>
-                    <li>Предупреждать о смене деятельности заранее («Через 5 минут заканчиваем»)</li>
-                    <li>Избегать громких звуков, резких движений, яркого света</li>
-                    <li>Использовать карточки PECS для коммуникации</li>
-                    <li>Создать «тихую зону» в классе для сенсорной разгрузки</li>
-                    <li>Избегать переносных смыслов, сарказма — говорить прямо</li>
-                </ul>
-                <p><strong>📌 Важно:</strong> Ребёнок с РАС не «плохо себя ведёт» — он так справляется с перегрузкой. Не наказывайте за странное поведение.</p>
-            `
-        },
-        {
-            icon: "🗣️",
-            title: "Нарушения речи (ТНР)",
-            preview: "Бедный словарь, трудности формулировки, нарушения произношения...",
-            details: `
-                <h3>🗣️ Особенности детей с ТНР</h3>
-                <p>🔹 Бедный активный и пассивный словарь<br>
-                🔹 Трудности с построением фраз, формулировкой мыслей<br>
-                🔹 Нарушения звукопроизношения</p>
-                <h3>✅ Что делать учителю</h3>
-                <ul>
-                    <li>Давать альтернативные способы ответа: выбор из картинок, перетаскивание, показ жестом</li>
-                    <li>Не перебивать, дать договорить — даже если речь смазанная</li>
-                    <li>Использовать карточки-опоры, пиктограммы</li>
-                    <li>Обратиться к логопеду за индивидуальными речевыми упражнениями</li>
-                    <li>Повторять важную информацию несколько раз, записывать на доске</li>
-                    <li>Поощрять любые попытки говорить</li>
-                </ul>
-                <p><strong>📌 Важно:</strong> Речевые нарушения ≠ интеллектуальные. Ребёнок может всё понимать, но не может сказать.</p>
-            `
-        },
-        {
-            icon: "👂",
-            title: "Нарушения слуха",
-            preview: "Затруднено восприятие устной речи, нужны визуальные опоры...",
-            details: `
-                <h3>👂 Особенности детей с нарушением слуха</h3>
-                <p>🔹 Затруднено восприятие устной речи<br>
-                🔹 Могут не слышать предупреждения об опасности<br>
-                🔹 Опираются на зрение и остаточный слух</p>
-                <h3>✅ Что делать учителю</h3>
-                <ul>
-                    <li>Говорить чётко, внятно, лицом к ученику</li>
-                    <li>Использовать зрительные опоры (текст на экране, субтитры в видео)</li>
-                    <li>При необходимости — привлечь сурдопереводчика или использовать голосовое управление</li>
-                    <li>Посадить за первую парту, чтобы ребёнок видел артикуляцию учителя</li>
-                    <li>Не поворачиваться спиной во время объяснения</li>
-                    <li>Использовать FM-системы при наличии</li>
-                </ul>
-                <p><strong>📌 Важно:</strong> Не кричите — крик искажает артикуляцию. Лучше подойти ближе.</p>
-            `
-        },
-        {
-            icon: "👁️",
-            title: "Нарушения зрения",
-            preview: "Плохо видят мелкие детали, нужна тактильная и аудиальная информация...",
-            details: `
-                <h3>👁️ Особенности детей с нарушением зрения</h3>
-                <p>🔹 Не видят мелкие детали, текст на доске<br>
-                🔹 Нуждаются в тактильной и аудиальной информации<br>
-                🔹 Могут дезориентироваться в пространстве</p>
-                <h3>✅ Что делать учителю</h3>
-                <ul>
-                    <li>Использовать контрастные цвета, крупный шрифт (14+)</li>
-                    <li>Озвучивать то, что пишете на доске</li>
-                    <li>Не переставлять мебель без предупреждения</li>
-                    <li>Посадить ближе к доске, к окну, но не напротив солнца</li>
-                    <li>Предупреждать о поворотах, ступеньках, препятствиях</li>
-                    <li>Использовать аудиокниги, рельефно-точечный шрифт Брайля</li>
-                </ul>
-                <p><strong>📌 Важно:</strong> Не трогайте ребёнка неожиданно — сначала назовите его по имени, предупредите о прикосновении.</p>
-            `
-        }
-    ];
-
-    // Рендер плиток
-    const gridContainer = document.getElementById("categoriesGrid");
-    function renderCategories() {
-        gridContainer.innerHTML = '';
-        categories.forEach((cat, idx) => {
-            const card = document.createElement("div");
-            card.className = "category-card";
-            card.setAttribute("data-idx", idx);
-            card.innerHTML = `
-                <div class="category-header">
-                    <span style="font-size:28px">${cat.icon}</span>
-                    <span>${cat.title}</span>
-                </div>
-                <div class="category-preview">
-                    ${cat.preview}
-                </div>
-                <div class="category-hint">
-                    <span>🔍 Нажмите для подробных советов →</span>
-                    <span>👇</span>
-                </div>
-            `;
-            card.addEventListener("click", () => openModal(idx));
-            gridContainer.appendChild(card);
-        });
-    }
-    renderCategories();
-
-    // Модальное окно
-    const modal = document.getElementById("categoryModal");
-    const modalBody = document.getElementById("modalBody");
-    const modalClose = document.getElementById("modalClose");
-
-    function openModal(idx) {
-        modalBody.innerHTML = categories[idx].details;
-        modal.style.display = "flex";
-    }
-    modalClose.onclick = () => modal.style.display = "none";
-    window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
-
-    // ========== ТЕСТ ==========
+    // ТЕСТ (10 вопросов по Слюсаревой)
     const questions = [
-        "Трудно применять знания о детях с ОВЗ на практике",
+        "Трудно применять знания о психологических особенностях детей с ОВЗ на практике",
         "Не хватает практических умений общаться с ребёнком с ОВЗ",
         "Не уверен(а) в своих силах в инклюзивном классе",
-        "Тревожусь, когда нужно начать контакт с ребёнком с ОВЗ",
+        "Испытываю тревожность, когда нужно инициировать контакт с ребёнком с ОВЗ",
         "Мне страшно общаться с ребёнком с ОВЗ",
         "Чувствую неловкость / стыд при взаимодействии",
-        "Мы с ребёнком по-разному понимаем одни и те же вещи",
-        "Мои объяснения слишком сложны для ребёнка с ОВЗ",
-        "Речь ребёнка с ОВЗ мешает пониманию",
-        "Не знаю альтернативной коммуникации (жесты, карточки, Брайль)"
+        "Мы с ребёнком по-разному понимаем одни и те же вещи (смысловой барьер)",
+        "Мои объяснения слишком сложны для ребёнка с ОВЗ (логический барьер)",
+        "Особенности речи ребёнка с ОВЗ затрудняют понимание",
+        "Не владею альтернативными средствами коммуникации (жесты, карточки, PECS)"
     ];
 
     let answers = new Array(10).fill(null);
@@ -606,26 +498,24 @@
             div.style.cursor = "pointer";
             div.innerHTML = `
                 <div><strong>${idx+1}. ${q}</strong></div>
-                <div class="options" data-q="${idx}" style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap">
-                    <span class="option-btn" data-val="0">0 — нет</span>
-                    <span class="option-btn" data-val="1">1 — иногда</span>
-                    <span class="option-btn" data-val="2">2 — часто</span>
-                    <span class="option-btn" data-val="3">3 — сильно</span>
+                <div style="display: flex; gap: 12px; margin-top: 10px; flex-wrap: wrap;">
+                    <label style="cursor: pointer;"><input type="radio" name="q${idx}" value="0"> 0 — нет</label>
+                    <label style="cursor: pointer;"><input type="radio" name="q${idx}" value="1"> 1 — иногда</label>
+                    <label style="cursor: pointer;"><input type="radio" name="q${idx}" value="2"> 2 — часто</label>
+                    <label style="cursor: pointer;"><input type="radio" name="q${idx}" value="3"> 3 — всегда</label>
                 </div>
             `;
             container.appendChild(div);
         });
-        document.querySelectorAll('.option-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const parentDiv = btn.closest('.options');
-                const qIdx = parseInt(parentDiv.dataset.q);
-                const val = parseInt(btn.dataset.val);
-                answers[qIdx] = val;
-                parentDiv.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
+        
+        for (let i = 0; i < 10; i++) {
+            const radios = document.querySelectorAll(`input[name="q${i}"]`);
+            radios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    answers[i] = parseInt(e.target.value);
+                });
             });
-        });
+        }
     }
     renderTest();
 
@@ -635,28 +525,33 @@
             if (answers[i] !== null) { total += answers[i]; answered++; }
         }
         if (answered < 8) { alert("⚠️ Ответьте хотя бы на 8 вопросов"); return; }
-        let levelText = "", levelEmoji = "", recommend = "";
-        if (total <= 10) { levelText = "Низкий уровень барьеров"; levelEmoji = "🟢✨"; recommend = "Вы отлично готовы! Поделитесь сайтом с коллегами."; }
-        else if (total <= 20) { levelText = "Средний уровень барьеров"; levelEmoji = "🟡⚡"; recommend = "Вы не одиноки. Посмотрите чек-листы и советы."; }
-        else { levelText = "Высокий уровень барьеров"; levelEmoji = "🔴🔥"; recommend = "Сильная тревога — это нормально. Начните с памятки."; }
+        
+        let levelText = "", recommend = "";
+        if (total <= 10) {
+            levelText = "Низкий уровень барьеров";
+            recommend = "Вы психологически готовы к работе в инклюзивном классе. Рекомендуется повышать профессиональную компетентность через курсы и самообразование.";
+        } else if (total <= 20) {
+            levelText = "Средний уровень барьеров";
+            recommend = "У вас есть отдельные затруднения. Рекомендуется освоение альтернативных средств коммуникации и работа с психологом.";
+        } else {
+            levelText = "Высокий уровень барьеров";
+            recommend = "Выраженные психологические барьеры. Рекомендуется психологическая поддержка, тренинги, постепенное погружение в инклюзивную практику.";
+        }
+        
         const resultDiv = document.getElementById("resultCard");
         resultDiv.style.display = "block";
-        resultDiv.innerHTML = `<div style="font-size:48px">${levelEmoji}</div><h3>${levelText}</h3><div style="font-size:32px; font-weight:bold">${total} / 30 баллов</div><p>💡 ${recommend}</p><button onclick="document.getElementById('resultCard').style.display='none'" style="background:#2c5364">✖️ Закрыть</button>`;
-        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        resultDiv.innerHTML = `<h3>${levelText}</h3><div style="font-size: 28px; font-weight: bold;">${total} / 30 баллов</div><p>💡 ${recommend}</p><button onclick="document.getElementById('resultCard').style.display='none'">✖️ Закрыть</button>`;
     });
 
-    // ========== ЧЕК-ЛИСТ ==========
+    // ЧЕК-ЛИСТ
     const checklistItems = [
-        { title: "📋 Сотрудничество со специалистами", desc: "Регулярно консультируйтесь с логопедом, дефектологом и психологом." },
-        { title: "🔄 Универсальный дизайн обучения", desc: "Планируйте урок гибко: разные способы подачи материала и оценки." },
-        { title: "❤️ Психологический климат", desc: "Формируйте атмосферу взаимопомощи и уважения к различиям." },
-        { title: "👨‍👩‍👧 Работа с родителями", desc: "Информируйте родителей всех детей о принципах инклюзии." },
-        { title: "📊 Дифференциация заданий", desc: "Давайте разноуровневые задания для всех учеников." },
-        { title: "🖼️ Мультисенсорная подача", desc: "Используйте зрение, слух, осязание — разные каналы восприятия." },
-        { title: "⏱️ Чередование деятельности", desc: "Меняйте виды деятельности каждые 7-10 минут." },
-        { title: "📝 Альтернативные формы оценки", desc: "Устный опрос, защита мини-проекта, творческие задания — не только письменные работы." }
+        "Адаптировал(а) учебный материал под возможности ребёнка с ОВЗ",
+        "Использовал(а) наглядные опоры (схемы, карточки, визуальное расписание)",
+        "Давал(а) дополнительное время на ответ",
+        "Организовал(а) работу в парах/группах с учётом особенностей",
+        "Провёл(а) рефлексию с учётом возможностей каждого ученика",
+        "Проконсультировался(лась) со специалистами (психолог, логопед, дефектолог)"
     ];
-
     let checklistState = JSON.parse(localStorage.getItem("checklistState")) || new Array(checklistItems.length).fill(false);
 
     function renderChecklist() {
@@ -666,65 +561,26 @@
         checklistItems.forEach((item, idx) => {
             const div = document.createElement("div");
             div.className = `checklist-item ${checklistState[idx] ? 'completed' : ''}`;
-            div.innerHTML = `
-                <div class="checklist-header">
-                    <span>${item.title}</span>
-                    <span style="font-size:12px">${checklistState[idx] ? '✅' : '⬜'}</span>
-                </div>
-                <div class="checklist-desc">${item.desc}</div>
-            `;
-            div.addEventListener("click", (e) => {
-                e.stopPropagation();
+            div.innerHTML = `<span>${item}</span>`;
+            div.addEventListener("click", () => {
                 checklistState[idx] = !checklistState[idx];
                 localStorage.setItem("checklistState", JSON.stringify(checklistState));
                 renderChecklist();
-                updateChecklistProgress();
+                updateProgress();
             });
             container.appendChild(div);
         });
-        updateChecklistProgress();
+        updateProgress();
     }
-    function updateChecklistProgress() {
+    function updateProgress() {
         const done = checklistState.filter(v => v === true).length;
-        const percent = Math.round((done / checklistItems.length) * 100);
-        const progressDiv = document.getElementById("checklistProgress");
-        if (progressDiv) progressDiv.innerHTML = `📊 Прогресс: ${done}/${checklistItems.length} (${percent}%)`;
+        document.getElementById("checklistProgress").innerHTML = `📊 Прогресс: ${done}/${checklistItems.length} (${Math.round(done/checklistItems.length*100)}%)`;
     }
     renderChecklist();
     document.getElementById("resetChecklist")?.addEventListener("click", () => {
         checklistState.fill(false);
         localStorage.setItem("checklistState", JSON.stringify(checklistState));
         renderChecklist();
-    });
-
-    // ========== СЛУЧАЙНЫЕ СОВЕТЫ ==========
-    const tips = [
-        "💡 При работе с ребёнком с РАС используйте визуальное расписание — это снижает тревожность.",
-        "💡 Для детей с ЗПР дробите задания на маленькие шаги и давайте больше времени на ответ.",
-        "💡 При нарушениях речи используйте альтернативные способы ответа: выбор из картинок.",
-        "💡 Для слабослышащих детей говорите чётко, лицом к ученику, используйте субтитры.",
-        "💡 Не знаете, что сказать в сложной ситуации? «Давай подумаем вместе» — лучшая фраза.",
-        "💡 LearningApps и Wordwall помогут быстро создать интерактивные задания.",
-        "💡 Медиатека «Все включены» — тысячи бесплатных материалов по инклюзии.",
-        "💡 Чек-лист готовности урока можно распечатать и держать на столе.",
-        "💡 Для незрячих детей: озвучивайте всё, что пишете на доске.",
-        "💡 Создайте в классе «тихую зону» — место, куда ребёнок может уйти при перегрузке."
-    ];
-
-    function showRandomTip() {
-        const randomIndex = Math.floor(Math.random() * tips.length);
-        document.getElementById("randomTip").innerHTML = tips[randomIndex];
-    }
-    document.getElementById("newTipBtn")?.addEventListener("click", showRandomTip);
-    showRandomTip();
-
-    // ========== ПРОГРЕСС-БАР ==========
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        const progressFill = document.getElementById("pageProgress");
-        if (progressFill) progressFill.style.width = scrolled + "%";
     });
 </script>
 </body>
